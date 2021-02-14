@@ -26,7 +26,7 @@
     <h1>車両{{ title }}</h1>
         <div class="p-2">
             <div class="pic m-0"> 
-                <img border="0" src="/media/{{data.img}}" alt="{{data.img}}" class="img mr-5">
+                <img border="0" src="/media/{{data.img}}" alt="{{data.img}}" class="img mr-5 float-left">
                 <div class="card" id="numberplate">
                     <div class="container clearfix" id="numberplate-top">
                         <p class="numberplate-top-item">{{ data.license_plate_place }}</p>
@@ -40,7 +40,7 @@
             </div>
             <div class="detail" style="clear:both;">
                 <div class="car">
-                    <p>車種(メーカー)：{{data.category}}({{data.parent_category}})</p>
+                    <p>車種(メーカー)：<br>　{{data.category}}({{data.parent_category}})</p>
                     <p>型番：{{data.model_id}}</p>
                     <p>乗車人数：{{data.people}}人</p>
                     <p>変速システム：{{data.at_mt}}車</p>
@@ -88,9 +88,9 @@
 </div>
 {% if title == "予約詳細" %}
     {% if flag == "car" %}
-        <a href="../delete/{{flag}}/{{booking.id}}" id="delete-btn" class="btn btn-outline-danger text-danger" role="button"><small>キャンセル</small></a>
+        <a href="../delete/{{flag}}/{{booking.id}}" class="btn-gradient-radius float-right" role="button"><small>キャンセル</small></a>
     {% else %}
-        <a href="../delete/{{flag}}/{{booking.id}}" id="delete-btn" class="btn btn-outline-danger text-danger" role="button"><small>キャンセル</small></a>
+        <a href="../delete/{{flag}}/{{booking.id}}" class="btn-gradient-radius float-right" role="button"><small>キャンセル</small></a>
     {% endif %}
 {% else %}
     {% if flag == "car" %}

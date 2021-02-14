@@ -262,5 +262,161 @@
         "id": 44,
         "parking_id_id": 7,
         "user_id": 0
+    },
+    {
+        "car_id_id": 45,
+        "id": 45,
+        "parking_id_id": 41,
+        "user_id": 0
+    },
+    {
+        "car_id_id": 50,
+        "id": 46,
+        "parking_id_id": 41,
+        "user_id": 0
+    },
+    {
+        "car_id_id": 52,
+        "id": 47,
+        "parking_id_id": 41,
+        "user_id": 0
+    },
+    {
+        "car_id_id": 53,
+        "id": 48,
+        "parking_id_id": 41,
+        "user_id": 0
+    },
+    {
+        "car_id_id": 59,
+        "id": 49,
+        "parking_id_id": 41,
+        "user_id": 0
+    },
+    {
+        "car_id_id": 54,
+        "id": 50,
+        "parking_id_id": 43,
+        "user_id": 0
+    },
+    {
+        "car_id_id": 69,
+        "id": 51,
+        "parking_id_id": 45,
+        "user_id": 0
+    },
+    {
+        "car_id_id": 70,
+        "id": 52,
+        "parking_id_id": 46,
+        "user_id": 0
+    },
+    {
+        "car_id_id": 64,
+        "id": 53,
+        "parking_id_id": 48,
+        "user_id": 0
+    },
+    {
+        "car_id_id": 46,
+        "id": 54,
+        "parking_id_id": 49,
+        "user_id": 0
+    },
+    {
+        "car_id_id": 62,
+        "id": 55,
+        "parking_id_id": 49,
+        "user_id": 0
+    },
+    {
+        "car_id_id": 49,
+        "id": 56,
+        "parking_id_id": 51,
+        "user_id": 0
+    },
+    {
+        "car_id_id": 58,
+        "id": 57,
+        "parking_id_id": 50,
+        "user_id": 0
+    },
+    {
+        "car_id_id": 47,
+        "id": 58,
+        "parking_id_id": 52,
+        "user_id": 0
+    },
+    {
+        "car_id_id": 51,
+        "id": 59,
+        "parking_id_id": 52,
+        "user_id": 0
+    },
+    {
+        "car_id_id": 68,
+        "id": 60,
+        "parking_id_id": 52,
+        "user_id": 0
+    },
+    {
+        "car_id_id": 56,
+        "id": 61,
+        "parking_id_id": 53,
+        "user_id": 0
+    },
+    {
+        "car_id_id": 57,
+        "id": 62,
+        "parking_id_id": 54,
+        "user_id": 0
+    },
+    {
+        "car_id_id": 48,
+        "id": 63,
+        "parking_id_id": 42,
+        "user_id": 0
+    },
+    {
+        "car_id_id": 67,
+        "id": 64,
+        "parking_id_id": 44,
+        "user_id": 0
+    },
+    {
+        "car_id_id": 60,
+        "id": 65,
+        "parking_id_id": 47,
+        "user_id": 0
+    },
+    {
+        "car_id_id": 63,
+        "id": 66,
+        "parking_id_id": 47,
+        "user_id": 0
+    },
+    {
+        "car_id_id": 55,
+        "id": 67,
+        "parking_id_id": 42,
+        "user_id": 0
+    },
+    {
+        "car_id_id": 65,
+        "id": 68,
+        "parking_id_id": 49,
+        "user_id": 0
+    },
+    {
+        "car_id_id": 61,
+        "id": 69,
+        "parking_id_id": 52,
+        "user_id": 0
+    },
+    {
+        "car_id_id": 66,
+        "id": 70,
+        "parking_id_id": 3,
+        "user_id": 0
     }
 ]

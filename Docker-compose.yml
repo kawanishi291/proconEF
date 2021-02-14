@@ -6,6 +6,8 @@ services:
     command: bash -c "pipenv install --system && python manage.py makemigrations && python manage.py migrate && gunicorn --bind 0.0.0.0:8000 config.wsgi:application"
     expose: 
       - 8000
+    volumes:
+      - '.:/Django'
     tty: True
     stdin_open: True
   

@@ -66,7 +66,7 @@ $('#form').ready(function(){
                 charge += (charge_h + charge_m);
                 times += x;
             }
-            if (answerdate <= 0 && result_h <= 0 && answertime <= 15){
+            if (answerdate <= 0 && result_h <= 0 && answertime < 15){
                 console.log('15分未満は利用できません');
                 if (comment == true){
                     $('#jquery').html('<p>終了時刻が開始時刻よりも前です。</p>');
@@ -156,7 +156,7 @@ $('#form').ready(function(){
                 charge += (charge_h + charge_m);
                 times += x;
             }
-            if (answerdate <= 0 && result_h <= 0 && answertime <= 15){
+            if (answerdate <= 0 && result_h <= 0 && answertime < 15){
                 console.log('15分未満は利用できません');
                 if (comment == true){
                     $('#jquery').html('<p>終了時刻が開始時刻よりも前です。</p>');

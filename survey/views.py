@@ -30,12 +30,16 @@ class Survey(TemplateView):
         }
 
     def get(self, request):
-        user_id = int(request.session['user_id'])
-        pattern = countCheck(user_id)
-        rsl = selectSurvey(pattern, user_id)
-        self.params['data'] = rsl
-        request.session['data'] = rsl
-        return render(request, 'survey/questionnaire.html', self.params)
+        if str(request.user) == "AnonymousUser":
+            messages.error(request, 'ログインしてください。')
+            return redirect(to='carsharing_req:index')
+        else:
+            user_id = int(request.session['user_id'])
+            pattern = countCheck(user_id)
+            rsl = selectSurvey(pattern, user_id)
+            self.params['data'] = rsl
+            request.session['data'] = rsl
+            return render(request, 'survey/questionnaire.html', self.params)
 
     def post(self, request):
         #チェックされたアンケート項目を取得

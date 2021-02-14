@@ -10,6 +10,7 @@ from .forms import AdminParkingForm, UploadFileForm
 from .models import MediaModel, StationModel, StationParkingModel
 from owners_req .models import HostUserModel, CarInfoModel, ParentCategory, Category, CarInfoParkingModel
 from owners_req .forms import CarInfoForm, CarOptionForm, CarInfoParkingForm, CarsharingDateForm
+from survey .models import AnswerModel
 from django.contrib import messages
 from django.views import generic
 import datetime
@@ -17,6 +18,7 @@ import json
 import openpyxl
 import re
 import os, shutil
+import ast
 from django.contrib.auth.hashers import make_password
 
 
@@ -1047,3 +1049,16 @@ def mobile(request):
         'markerData': item_list,
     }
     return HttpResponse(json.dumps(data))
+
+
+
+def survey(request):
+    params = {
+        'title': "アンケート"
+    }
+    data = list(AnswerModel.objects.filter(count=3).values('answer'))
+    for itemstr in data:
+        item = ast.literal_eval(itemstr['answer'])
+        print(type(item))
+        print(item)
+    return render(request, 'administrator/survey.html', params)

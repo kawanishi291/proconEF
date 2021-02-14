@@ -6,9 +6,9 @@ from django.core.validators import MaxValueValidator, MinValueValidator, RegexVa
 from django.core.validators import FileExtensionValidator
 
 import numpy as np
-# import tensorflow.compat.v1 as tf
-# from tensorflow import keras
-# from tensorflow.keras.models import load_model
+import tensorflow.compat.v1 as tf
+from tensorflow import keras
+from tensorflow.keras.models import load_model
 from PIL import Image
 import io, base64
 
@@ -82,7 +82,7 @@ class UsageModel(models.Model):
     def __str__(self):
         return '<carshar_usage_id=' + str(self.id) + '>'
 
-# graph = tf.get_default_graph()
+graph = tf.get_default_graph()
 
 class Photo(models.Model):
     image = models.ImageField(upload_to='photos')

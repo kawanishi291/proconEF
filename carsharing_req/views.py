@@ -166,6 +166,8 @@ class CarsharUserInfo(TemplateView):
     def get(self, request):
         if str(request.user) == "AnonymousUser":
             print('ゲスト')
+            path = "http://127.0.0.1:8000/parking_booking/push/"
+            print(path[:-21])
         else:
             print(request.user)
             user_data = CarsharUserModel.objects.get(id=request.session['user_id'])
@@ -397,80 +399,81 @@ def push(request):
         plan = request.POST['plan']
         charge = request.POST['charge']
 
-        # imageform = PhotoForm(request.POST, request.FILES)
-        # print(imageform)
+        imageform = PhotoForm(request.POST, request.FILES)
+        print(imageform)
 
         # heroku使用
-        img = request.FILES['image']
-        params['first_name'] = first_name
-        params['last_name'] = last_name
-        params['first_ja'] = first_ja
-        params['last_ja'] = last_ja
-        params['gender'] = gender
-        params['birthday'] = request.POST['birthday']
-        params['age'] = age
-        params['zip01'] = zip01
-        params['pref01'] = pref01
-        params['addr01'] = addr01
-        params['addr02'] = addr02
-        params['tel'] = tel
-        params['credit_card_company'] = credit_card_company
-        params['first_en'] = first_en
-        params['last_en'] = last_en
-        params['credit_card_num'] = request.POST['credit_card_num']
-        params['credit_card_num_check'] = credit_card_num_check
-        params['valid_thru'] = valid_thru
-        params['security_code'] = request.POST['security_code']
-        params['plan'] = plan
-        params['charge'] = charge
-        params['birthday_year'] = request.POST['birthday_year']
-        params['birthday_month'] = request.POST['birthday_month']
-        params['birthday_day'] = request.POST['birthday_day']
-        params['imageform'] = PhotoForm()
+        # img = request.FILES['image']
+        # params['first_name'] = first_name
+        # params['last_name'] = last_name
+        # params['first_ja'] = first_ja
+        # params['last_ja'] = last_ja
+        # params['gender'] = gender
+        # params['birthday'] = request.POST['birthday']
+        # params['age'] = age
+        # params['zip01'] = zip01
+        # params['pref01'] = pref01
+        # params['addr01'] = addr01
+        # params['addr02'] = addr02
+        # params['tel'] = tel
+        # params['credit_card_company'] = credit_card_company
+        # params['first_en'] = first_en
+        # params['last_en'] = last_en
+        # params['credit_card_num'] = request.POST['credit_card_num']
+        # params['credit_card_num_check'] = credit_card_num_check
+        # params['valid_thru'] = valid_thru
+        # params['security_code'] = request.POST['security_code']
+        # params['plan'] = plan
+        # params['charge'] = charge
+        # params['birthday_year'] = request.POST['birthday_year']
+        # params['birthday_month'] = request.POST['birthday_month']
+        # params['birthday_day'] = request.POST['birthday_day']
+        # params['imageform'] = PhotoForm()
         
         # 現ver
-        # image = request.FILES['image']
-        # print(image)
-        # photo = Photo(image=image)
-        # predicted, percentage = photo.predict()
-        # print(predicted)
-        # print(str(percentage) + '%')
-        # if predicted == '免許証写真' and int(percentage) >= 80:
-        #     img = request.FILES['image']
-        # else:
-        #     params['first_name'] = first_name
-        #     params['last_name'] = last_name
-        #     params['first_ja'] = first_ja
-        #     params['last_ja'] = last_ja
-        #     params['gender'] = gender
-        #     params['birthday'] = request.POST['birthday']
-        #     params['age'] = age
-        #     params['zip01'] = zip01
-        #     params['pref01'] = pref01
-        #     params['addr01'] = addr01
-        #     params['addr02'] = addr02
-        #     params['tel'] = tel
-        #     params['credit_card_company'] = credit_card_company
-        #     params['first_en'] = first_en
-        #     params['last_en'] = last_en
-        #     params['credit_card_num'] = request.POST['credit_card_num']
-        #     params['credit_card_num_check'] = credit_card_num_check
-        #     params['valid_thru'] = valid_thru
-        #     params['security_code'] = request.POST['security_code']
-        #     params['plan'] = plan
-        #     params['charge'] = charge
-        #     params['birthday_year'] = request.POST['birthday_year']
-        #     params['birthday_month'] = request.POST['birthday_month']
-        #     params['birthday_day'] = request.POST['birthday_day']
-        #     params['imageform'] = PhotoForm()
-        #     messages.error(request, '免許証と判定されませんでした。<br>横向きの写真をアップロードしてください。')
-        #     return render(request, 'carsharing_req/check.html', params)
+        image = request.FILES['image']
+        print(image)
+        photo = Photo(image=image)
+        predicted, percentage = photo.predict()
+        print(predicted)
+        print(str(percentage) + '%')
+        if predicted == '免許証写真' and int(percentage) >= 80:
+            img = request.FILES['image']
+        else:
+            params['first_name'] = first_name
+            params['last_name'] = last_name
+            params['first_ja'] = first_ja
+            params['last_ja'] = last_ja
+            params['gender'] = gender
+            params['birthday'] = request.POST['birthday']
+            params['age'] = age
+            params['zip01'] = zip01
+            params['pref01'] = pref01
+            params['addr01'] = addr01
+            params['addr02'] = addr02
+            params['tel'] = tel
+            params['credit_card_company'] = credit_card_company
+            params['first_en'] = first_en
+            params['last_en'] = last_en
+            params['credit_card_num'] = request.POST['credit_card_num']
+            params['credit_card_num_check'] = credit_card_num_check
+            params['valid_thru'] = valid_thru
+            params['security_code'] = request.POST['security_code']
+            params['plan'] = plan
+            params['charge'] = charge
+            params['birthday_year'] = request.POST['birthday_year']
+            params['birthday_month'] = request.POST['birthday_month']
+            params['birthday_day'] = request.POST['birthday_day']
+            params['imageform'] = PhotoForm()
+            messages.error(request, '免許証と判定されませんでした。<br>横向きの写真をアップロードしてください。')
+            return render(request, 'carsharing_req/check.html', params)
         record = CarsharUserModel(email=email, first_name=first_name, last_name=last_name, first_ja=first_ja, last_ja=last_ja, \
             gender=gender, age=age, birthday=birthday, zip01=zip01, pref01=pref01, addr01=addr01, addr02=addr02, tel=tel, \
             credit_card_company=credit_card_company, first_en=first_en, last_en=last_en, \
             credit_card_num=credit_card_num, credit_card_num_check=credit_card_num_check, valid_thru=valid_thru, \
             security_code=security_code, plan=plan, charge=charge, charge_flag=True, img=img)
         record.save()
+        messages.success(request, '免許証と判定されました。')
         messages.success(request, '会員登録が完了しました。')
     else:
         messages.error(request, '不正なリクエストです。')
@@ -741,7 +744,8 @@ def checkParkingUsage(user_id):
 
 def surveyMail(request, booking):
     subject = "返却確認のお願い"
-    attachments = "http://127.0.0.1:8000/survey/questionnaire"
+    path = request.build_absolute_uri()
+    url = path[:-27] + 'survey/questionnaire'
     message = str(request.user) + "様\n \
         運転お疲れ様でした。返却のお時間です。\n \
         またのご利用をお待ちしております。\n\n \
@@ -750,10 +754,10 @@ def surveyMail(request, booking):
         終了日: " + booking['end_day'] + "\n \
         終了時刻: " + booking['end_time'] + "\n \
         料金: " + str(booking['charge']) + "円\n\n \
-        コチラから返却確認処理をおこなってください。\n \
-        URL: " + attachments + "\n"
+        コチラから返却確認をして下さい。\n \
+        URL: " + url + "\n"
     user = request.user  # ログインユーザーを取得する
-    from_email = 'admin@gmail.com'  # 送信者
+    from_email = 's.kawanishi291@gmail.com'  # 送信者
     user.email_user(subject, message, from_email)  # メールの送信
     pass
 
@@ -769,7 +773,7 @@ def ParkingEndMail(request, booking):
         料金: " + str(booking['charge']) + "円\n\n \
         またのご利用お待ちしております。"
     user = request.user  # ログインユーザーを取得する
-    from_email = 'admin@gmail.com'  # 送信者
+    from_email = 's.kawanishi291@gmail.com'  # 送信者
     user.email_user(subject, message, from_email)  # メールの送信
     pass
 

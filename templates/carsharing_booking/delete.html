@@ -75,14 +75,14 @@
         {% csrf_token %}
         <input type="hidden" name="flag" value="{{flag}}">
         <input type="hidden" name="id" value="{{booking.id}}">
-        <input class="btn" type="submit" value="キャンセル確定" style="float: right;color: red;">
+        <input class="reset btn-gradient-radius float-right" type="submit" value="キャンセル確定">
     </form>
 {% else %}
     <form action="{% url 'carsharing_booking:delete' %}" method="post" >
         {% csrf_token %}
         <input type="hidden" name="flag" value="{{flag}}">
         <input type="hidden" name="id" value="{{booking.id}}">
-        <input class="btn" type="submit" value="キャンセル確定" style="float: right;color: red;">
+        <input class="btn-gradient-radius float-right" type="submit" value="キャンセル確定">
     </form>
 {% endif %}
 <script>

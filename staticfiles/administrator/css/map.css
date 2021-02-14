@@ -1,0 +1,157 @@
+div {
+    margin: 0pt;
+  }
+  #map_info {
+    padding: 0.5em 1em;
+    margin: 2em 10pt;
+    margin-bottom: 20pt;
+    color: rgb(83, 83, 83);
+    background: white;
+    border-top: solid 5px rgb(83, 83, 83);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+    opacity: 1;
+    width: 97%;
+  
+  }
+  #map_container {
+  
+    width: 90%;
+    padding: 4px;
+    margin: 0pt;
+  }
+  #map_canvas {   /* 高さ（と幅）を指定しないと地図は表示されない */
+    width: 100%;
+    height: 500px;
+    border: 1px solid black;
+    margin: 10pt; 
+  }
+  #url, #zoom {
+    display: none;  /* 非表示 */
+  }
+  /* 情報ウィンドウ（マーカーをクリックすると表示される領域）内 */
+  #map_content {
+    width: 250px;
+    height: 70px;
+  }
+
+.table td, .table th{
+  vertical-align: middle;
+}
+.hour-button-box {
+	width: 90%;
+	margin: 2em auto;
+	text-align: left;
+}
+.hour-button-box input[type='radio'] {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+}
+.hour-button-box label {
+	position: relative;
+	display: inline-block;
+	margin-right: 30px;
+	padding-right: 10px;
+	padding-left: 35px;
+	cursor: pointer;
+}
+.hour-button-box label::before {
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	display: block;
+	width: 24px;
+	height: 24px;
+	content: ' ';
+	border: 2px solid #5d627b;
+	border-radius: 4px;
+}
+.hour-button-box input[type='radio'] + label::before {
+	border-radius: 18px;
+}
+.hour-button-box input[type='radio']:checked + label {
+	padding-left: 10px;
+	color: #ffffff;
+}
+.hour-button-box input[type='radio']:checked + label::before {
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: #5d627b;
+}
+/* Transition */
+.hour-button-box label, .hour-button-box label::before {
+	-webkit-transition: 0.25s all ease;
+	        transition: 0.25s all ease;
+}
+
+.sp { 
+  display: none !important; 
+}
+
+.tr1 {
+  border-top: solid;
+  border-bottom: solid;
+  border-color: rgb(83, 83, 83);
+}
+
+.tr2 {
+  border-bottom: solid;
+  border-color: #cdcdcd;
+  border-width: 1pt;
+}
+
+#calendar {
+  width: 50%;
+}
+
+#form {
+  width: 50%;
+}
+
+.smbtn {
+    font-size: 7pt;
+    margin: 3pt 10pt 3pt 10pt;
+    border-color: #CDCDCD;
+    float: right;
+    clear: both;
+    height: 20%;
+}
+
+.smbtn:hover {
+    background-color: #CDCDCD;
+}
+
+.gm-style .gm-style-iw-c {
+    opacity: 0.9;
+}
+
+@media (max-width: 690px){
+  #map_info {
+    width: 90%;
+    font-size: 11pt;
+  }
+
+  .pc { 
+    display: none !important; 
+  }
+
+  .sp { 
+    display: block !important; 
+  } 
+
+  table {
+    width: 100%;
+  }
+
+  #calendar {
+    width: 100%;
+    display: block;
+  }
+
+  #form {
+    width: 100%;
+    display: block;
+  }
+}

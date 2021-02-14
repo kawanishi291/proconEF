@@ -21,4 +21,5 @@ urlpatterns = [
     path('download_data/', DownloadData.as_view(), name='download_data'),
     path('upload_data/', UploadData.as_view(), name='upload_data'),
     path('mobile/', views.mobile, name='mobile'),
+    path('survey/', views.survey, name='survey')
 ]

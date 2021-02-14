@@ -174,8 +174,12 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
+#AWS環境(SES)
+AWS_SES_ACCESS_KEY_ID = 'AKIAVK6DTHL5DNGONCPC'
+AWS_SES_SECRET_ACCESS_KEY = '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'
+EMAIL_BACKEND = 'django_ses.SESBackend'
 #開発環境では、メールのシステムをスタブ化
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 #ユーザー認証の設定
 AUTH_USER_MODEL = 'accounts.CustomUser'

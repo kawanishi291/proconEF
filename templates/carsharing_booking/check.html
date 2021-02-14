@@ -22,7 +22,7 @@
         <th>搭載機能</th>
     </tr>
     <tr>
-        <td><img src="/media/{{car_obj.img}}" width="110" height="80" border="0" /></td>
+        <td><img src="/media/{{car_obj.img}}" width="150" border="0" /></td>
         <td>{{car_obj.parent_category}}</td>
         <td>{{car_obj.category}}</td>
         <td>{{car_obj.model_id}}</td>
@@ -126,13 +126,19 @@
 <br>
 <div>
     <h2>{{message}}</h2>
-    <div>
+    <div class="w-75 float-left">
         <p>利用予約場所：{{address}}</p>
         <p>開始予定日時：{{data.start_day}} {{data.start_time}}</p>
         <p>終了予定日時：{{data.end_day}} {{data.end_time}}</p>
         <p>利用予定時間：{{times}}</p>
         <p>支払い予定料金：{{kingaku}}円</p>
     </div>
+{% if title == "予約完了" %}
+    <div class="w-25 float-left">
+        <h5>予約情報QRコード</h5>
+        <img src="http://chart.apis.google.com/chart?cht=qr&chs=130x130&chl={{ request.scheme }}://{{ request.get_host }}{% url 'carsharing_booking:list' %}">
+    </div>
+{% endif %}
     <div>
     {% if request.session.select == 'map' or  request.session.select == 'car' %}
         <form action="{% url 'carsharing_booking:push' %}" method="post" >

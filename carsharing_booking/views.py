@@ -855,7 +855,7 @@ def checkBooking(request):
                 elif h <= 6 and charge > 4580:
                     charge = 4580
         times += x
-    if d == 0 and m <= 15 and h == 0:
+    if d == 0 and m < 15 and h == 0:
         messages.error(request, '15分未満は利用できません。')
         if request.session['select'] == 'map':
             return render(request, 'carsharing_booking/booking.html', params)
@@ -886,6 +886,9 @@ def checkBooking(request):
     return render(request, "carsharing_booking/check.html", params)
 
 def push(request):
+    if str(request.user) == "AnonymousUser":
+        messages.error(request, 'ログインしてください。')
+        return redirect(to='carsharing_req:index')
     if (request.method == 'POST'):
         user_id = int(request.session['user_id'])
         car_id = int(request.POST['car_id'])
@@ -913,7 +916,8 @@ def push(request):
 def success_booking_mail(request, charge, start_day, start_time, end_day, end_time):
 
     subject = "予約完了確認メール"
-    url = 'http://127.0.0.1:8000/carsharing_booking/list/'
+    path = request.build_absolute_uri()
+    url = path[:-5] + 'list/'
     message = str(request.user) + "様\n \
         ご予約ありがとうございます。\n \
         お手続きが完了いたしました。\n\n \
@@ -925,7 +929,7 @@ def success_booking_mail(request, charge, start_day, start_time, end_day, end_ti
         予約詳細はコチラから！！\n \
         URL: " + url + "\n"
     user = request.user  # ログインユーザーを取得する
-    from_email = 'admin@gmail.com'  # 送信者
+    from_email = 's.kawanishi291@gmail.com'  # 送信者
     user.email_user(subject, message, from_email)  # メールの送信
     pass
 
@@ -1037,6 +1041,8 @@ class ReservationList(TemplateView):
         return render(request, 'carsharing_booking/list_next.html', self.params)
 
     def get(self, request):
+        if str(request.user) == "AnonymousUser":
+            return redirect(to='carsharing_req:index')
         dt_now = datetime.datetime.now()
         d_now = dt_now.strftime('%Y-%m-%d')
         # print(d_now)

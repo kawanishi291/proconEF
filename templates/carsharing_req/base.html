@@ -97,12 +97,16 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
         {% if request.session.system_flag >= 10 %}
                 <div class=""></div>
-                <a class="dropdown-item-owner" href="/owners_req/createDate">カーシェアリングオーナー<br>貸し出し日時を登録する</a>
+                <a class="dropdown-item" href="/owners_req/createDate">カーシェアリングオーナー<br>●貸し出し日時を登録する</a>
+        {% elif request.session.system_flag >= 1 %}
+                <a class="dropdown-item" href="/owners_req/createCar">カーシェアリングオーナー<br>●車両追加</a>
         {% endif %}
-                <a class="dropdown-item-owner" href="/carsharing_req/pages/3/0">カーシェアリングオーナー利用の流れ</a>
+                <a class="dropdown-item" href="/carsharing_req/pages/3/0">カーシェアリングオーナー利用の流れ</a>
         {% if request.session.system_flag >= 5 %}
                 <div class=""></div>
-                <a class="dropdown-item" href="/parking_req/loaning/">駐車場オーナー<br>貸し出し日時を登録する</a>
+                <a class="dropdown-item" href="/parking_req/loaning/">駐車場オーナー<br>●貸し出し日時を登録する</a>
+        {% elif request.session.system_flag >= 1 %}
+                <a class="dropdown-item" href="/parking_req/">駐車場オーナー<br>●駐車場追加</a>
         {% endif %}
                 <a class="dropdown-item" href="/carsharing_req/pages/4/0">駐車場オーナー利用の流れ</a> 
             </div>
@@ -191,10 +195,14 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 {% if request.session.system_flag >= 10 %}
                     <a class="dropdown-item small" href="/owners_req/createDate">カーシェアリングオーナー：貸し出し日時を登録する</a>
+                {% elif request.session.system_flag >= 1 %}
+                    <a class="dropdown-item small" href="/owners_req/createCar">カーシェアリングオーナー：車両追加</a>
                 {% endif %}
                     <a class="dropdown-item small" href="/carsharing_req/pages/3/0">カーシェアリングオーナー利用の流れ</a>
                 {% if request.session.system_flag >= 5 %}
                     <a class="dropdown-item small" href="/parking_req/loaning/">駐車場オーナー：貸し出し日時を登録する</a>
+                {% elif request.session.system_flag >= 1 %}
+                    <a class="dropdown-item small" href="/parking_req/">駐車場オーナー：駐車場追加</a>
                 {% endif %}
                     <a class="dropdown-item small" href="/carsharing_req/pages/4/0">駐車場オーナー利用の流れ</a> 
                 </div>
@@ -237,13 +245,13 @@
             {% endif %}
             </li>
             <li>
-                <a href="/carsharing_booking/map">カーシェアリング検索</a>
+                <a href="/carsharing_booking/">カーシェアリング検索</a>
             </li>
             <li>
                 <a href="/parking_booking/map">駐車場検索</a>
             </li>
             <li>
-                <a href="#!">中古車検索</a>
+                <a href="/secondhandcar/search/">中古車検索</a>
             </li>
         </ul>
         <ul class="footerflex footercards">
@@ -260,54 +268,14 @@
             {% if request.session.parking_flag == True %}
                 <a href="/parking_req/loaning/">駐車場オーナー日時登録</a>
             {% elif request.session.system_flag >= 1 %}
-                <a href="#!">駐車場追加</a>
+                <a href="/parking_req/">駐車場追加</a>
             {% else %}
-                <a href="#!">駐車場オーナー新規登録</a>
+                <a href="/owners_req/create">駐車場オーナー新規登録</a>
             {% endif %}
             </li>
         </ul>
     </div>
         <footer class="footer">
-            {% comment %} <div class="replay w-100">
-                <ul style="list-style-type: none">
-                <li class="none">
-                {% if user.is_authenticated %}
-                <a href="/carsharing_booking/list" class="replay01">予約確認</a>
-                {% else %}
-                <a href="/accounts/signup/"  class="replay01">新規会員登録</a>
-                {% endif %}
-                </li>
-                <li class="none">
-                <a href="/carsharing_booking/map"  class="replay01">カーシェアリング検索</a>
-                </li>
-                <li class="none">
-                <a href="/parking_booking/map"  class="replay01">駐車場検索</a>
-                </li>
-                <li class="none">
-                <a href="#!"  class="replay01">中古車検索</a>
-                </li>
-                <div class="replay00">
-                <li class="none">
-                {% if request.session.system_flag >= 10 %}
-                <a href="/owners_req/createDate"  class="replay02">カーシェアオーナー日時登録</a>
-                {% elif request.session.system_flag >= 1 %}
-                <a href="/owners_req/createCar"  class="replay02" style="margin-left: 150pt;margin-right: 150pt;">車両追加</a>
-                {% else %}
-                <a href="/owners_req/create"  class="replay02">カーシェアオーナー新規登録</a>
-                {% endif %}
-                </li>
-                <li class="none">
-                {% if request.session.parking_flag == True %}
-                <a href="/parking_req/loaning/"  class="replay02">駐車場オーナー日時登録</a>
-                {% elif request.session.system_flag >= 1 %}
-                <a href="#!"  class="replay02" style="margin-left: 150pt;margin-right: 150pt;">駐車場追加</a>
-                {% else %}
-                <a href="#!"  class="replay02">駐車場オーナー新規登録</a>
-                {% endif %}
-                </li>
-                </div>
-                </ul>
-            </div> {% endcomment %}
         <!-- Copyright -->
         <div class="w-100"> 
             <div class="footer-copyright text-center py-3">

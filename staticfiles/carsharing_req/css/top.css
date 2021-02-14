@@ -1,3 +1,7 @@
+.one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten {
+  box-shadow: 0 0 8px gray;
+}
+
 .three {
     width: 100%;
     margin: 5pt;

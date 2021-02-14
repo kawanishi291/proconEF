@@ -14,3 +14,7 @@ h2 {
     border-bottom: solid;
 
 }
+.table td, .table th {
+padding: .75rem 0;
+vertical-align: middle;
+}

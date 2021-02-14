@@ -1,0 +1,16 @@
+{% extends 'administrator/base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href='{% static "administrator/css/settinginfo.css" %}'>
+{% endblock %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block main_contents %}
+  <div id="target"></div>
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript" src='{% static "administrator/js/google-chart.js" %}'></script>
+{% endblock %}

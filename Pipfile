@@ -18,7 +18,11 @@ sklearn = "*"
 matplotlib = "*"
 scipy = "*"
 gunicorn = "*"
-keras = "==2.3.1"
+tensorflow = "*"
+keras = "*"
+boto = "*"
+django-ses = "*"
+
 
 [requires]
 python_version = "3.7"
